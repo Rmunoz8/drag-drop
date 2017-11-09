@@ -54,7 +54,7 @@ body{
 }
 
 img{
-    width: 7%;
+    width: 15%;
 }
 
 section#contenedor >img{
@@ -66,7 +66,11 @@ section#contenedor > img#pezS{
 }
 
 img#pez{
-    width: 5%;
+    width: 10%;
+}
+
+section#contenedor > img#pez{
+    width: 22%;
 }
 
 
@@ -90,6 +94,11 @@ section#contenedor{
 }
 /*---------------------------Siluetas-------------------------------------------*/
 section#inicial{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 200px;
+/*    background-color: #F7B577;*/
     margin-top: 2%;
     text-align: center;
 }
