@@ -57,20 +57,13 @@ img{
     width: 15%;
 }
 
-section#contenedor >img{
+section#contenedor > section >img{
     width: 30%;
 }
 
-section#contenedor > img#pezS{
-    width: 22%;
-}
+section#contenedor > section{
 
-img#pez{
-    width: 10%;
-}
-
-section#contenedor > img#pez{
-    width: 22%;
+    text-align: center;
 }
 
 
@@ -98,7 +91,19 @@ section#inicial{
     margin-right: auto;
     width: 50%;
     height: 200px;
-/*    background-color: #F7B577;*/
     margin-top: 2%;
     text-align: center;
+}
+
+/*---------------------------Corrector-------------------------------------------*/
+
+section#corrector{
+    margin-left: 5%;
+    margin-top: 5%;
+    position: absolute;
+    background-color: #F7B577;
+    height: 50px;
+    width: 5%;
+    border-radius: 100%;
+    border: solid 1px black;
 }
