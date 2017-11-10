@@ -1,79 +1,99 @@
-window.onload = function (){
-
-    document.getElementById("pez").addEventListener("dragstart", jugar = (e) =>{
-        e.dataTransfer.effecAllowed = 'move';
-        e.dataTransfer.setData("Data", e.target.id);
-        e.dataTransfer.setDragImage(e.target, 20, 35);
-        e.target.style.opacity = '0.5';
-        console.log("Arrastra");
-
-    }, false);
-
-    document.getElementById("pez").addEventListener("dragend", fin = (e) =>{
-
-        e.target.style.opacity = '';
-        e.dataTransfer.clearData("Data");
-        console.log("Fin Arrastre");
-
-    }, false);
-
-    document.getElementById("contenedor").addEventListener("dragenter", entra = (e) =>{
-
-        e.target.style.border = '3px dotted #555';
-        console.log("Entra");
-
-    }, false);
-
-    document.getElementById("contenedor").addEventListener("dragleave", sale = (e) =>{
-
-        e.target.style.border = '';
-        console.log("Sale");
-
-    }, false);
+window.onload = function(){
 
 
-    document.getElementById("contenedor").addEventListener("dragover", estaDentro = (e) =>{
-        console.log("Está dentro");
-    }, false);
+    var dragged;
+
+  document.addEventListener("drag", function( event ) {
+
+  }, false);
+
+  document.addEventListener("dragstart", function( event ) {
+
+      dragged = event.target;
+      dragged.style.opacity = 0.5;
+
+  }, false);
+
+  document.addEventListener("dragend", function( event ) {
+
+      event.target.style.opacity = "";
+
+  }, false);
+
+  document.addEventListener("dragover", function( event ) {
+
+      event.preventDefault();
+
+  }, false);
+
+  document.addEventListener("dragenter", function( event ) {
+
+      console.log("target:"+event.target.id +  "/ dragged:" +dragged.id );
+      if(event.target.id == "hueco1" && dragged.id == "figura1"){
+          console.log("entra");
+          document.getElementById("corrector").style.backgroundColor = "#5cb85c";
+      }
+       if(event.target.id == "hueco2" && dragged.id == "figura2"){
+        document.getElementById("corrector").style.backgroundColor = "#5cb85c";
+      }
+      if(event.target.id == "hueco3" && dragged.id == "figura3"){
+        document.getElementById("corrector").style.backgroundColor = "#5cb85c";
+      }
+      if(event.target.id == "hueco4" && dragged.id == "figura4"){
+        document.getElementById("corrector").style.backgroundColor = "#5cb85c";
+      }
+  }, false);
+
+  document.addEventListener("dragleave", function( event ) {
+
+        if(event.target.id == "contenedor"){
+            document.getElementById("corrector").style.backgroundColor = "#DE1A0D";
+        }
 
 
-    document.getElementById("contenedor").addEventListener("drop", soltar = (e) =>{
+  }, false);
 
-          console.log("Drop");
-//
-        var id = e.dataTransfer.getData("Data");
-        this.appendChild(document.getElementById(id));
-        e.preventDefault();
+  document.addEventListener("drop", function( event ) {
 
-//        let elementoArrastrado = e.dataTransfer.getData("Data");
-//        e.target.appendChild(document.getElementById(elementoArrastrado));
-//        e.target.style.border = '';
-//
-//        tamContX = $('#'+e.target.id).width();
-//        tamContY = $('#'+e.target.id).height();
-//
-//        tamElemX = $('#'+elementoArrastrado).width();
-//        tamElemY = $('#'+elementoArrastrado).height();
-//
-//        posXCont = $('#'+e.target.id).position().left;
-//        posYCont = $('#'+e.target.id).position().top;
-//
-//        x = e.layerX;
-//        y = e.layerY;
-//
-//        if(posXCont + tamContX <= x + tamElemX){
-//            x = posXCont + tamContX - tamElemX;
-//        }
-//
-//        if(posYCont + tamContY <= y + tamElemY){
-//            y = posYCont + tamContY - tamElemY;
-//        }
-//
-//        document.getElementById(elementoArrastrado).style.position = "absolute";
-//        document.getElementById(elementoArrastrado).style.left = x + "px";
-//        document.getElementById(elementoArrastrado).style.top = y + "px";
+      event.preventDefault();
+
+      if ( event.target.id == "hueco1" && dragged.id == "figura1") {
+          dragged.parentNode.removeChild( dragged );
+          document.getElementById("con1").appendChild( dragged );
+          document.getElementById("hueco1").parentNode.removeChild(event.target);
+          document.getElementById("figura1").setAttribute("draggable", false);
+      }
+
+      if ( event.target.id == "hueco4" && dragged.id == "figura4") {
+            dragged.parentNode.removeChild( dragged );
+            document.getElementById("con4").appendChild( dragged );
+            document.getElementById("hueco4").parentNode.removeChild(event.target);
+            document.getElementById("figura4").setAttribute("draggable", false);
 
 
-    }, false);
+      }
+
+      if ( event.target.id == "hueco3" && dragged.id == "figura3") {
+          dragged.parentNode.removeChild( dragged );
+          document.getElementById("con3").appendChild( dragged );
+          document.getElementById("hueco3").parentNode.removeChild(event.target);
+          document.getElementById("figura3").setAttribute("draggable", false);
+
+      }
+      if ( event.target.id == "hueco2" && dragged.id == "figura2") {
+          dragged.parentNode.removeChild( dragged );
+          document.getElementById("con2").appendChild( dragged );
+          document.getElementById("hueco2").parentNode.removeChild(event.target);
+          document.getElementById("figura2").setAttribute("draggable", false);
+
+      }
+
+
+      if ( event.target.id == "inicial" ) {
+          dragged.parentNode.removeChild( dragged );
+          event.target.appendChild( dragged );
+      }
+
+  }, false);
 
 }
