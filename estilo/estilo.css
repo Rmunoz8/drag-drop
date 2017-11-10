@@ -101,16 +101,24 @@ section#corrector{
     margin-left: 5%;
     margin-top: 5%;
     position: absolute;
-/*
-    background-color: red;
-    height: 50px;
-    width: 5%;
-    border-radius: 100%;
-    border: solid 1px black;
-*/
-
      width: 100px;
      height: 100px;
      border-radius: 50%;
      background: #DE1A0D;
+}
+
+/*---------------------------Reiniciar-------------------------------------------*/
+
+section#reiniciar{
+    margin-left: 90%;
+    margin-top: 5%;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: #F7B577;
+}
+
+section#reiniciar > p{
+    padding: 25%;
+/*    text-align: center;*/
 }
