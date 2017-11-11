@@ -1,6 +1,5 @@
 window.onload = function(){
 
-
     var dragged;
 
   document.addEventListener("drag", function( event ) {

@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    font-family: 'Bree Serif', serif;
 }
 ol, ul {
 	list-style: none;
@@ -110,15 +111,25 @@ section#corrector{
 /*---------------------------Reiniciar-------------------------------------------*/
 
 section#reiniciar{
-    margin-left: 90%;
+    margin-left: 85%;
     margin-top: 5%;
     position: fixed;
-    width: 100px;
+    width: 200px;
     height: 100px;
     background-color: #F7B577;
+    border-radius: 12px;
+    transition: 0.3s;
 }
 
+section#reiniciar:hover{
+    box-shadow: 0px 0px 20px 10px rgba(90,87,87,0.65);
+}
+
+
 section#reiniciar > p{
-    padding: 25%;
-/*    text-align: center;*/
+    font-weight: bold;
+    font-size: 200%;
+    padding-top: 15%;
+    color: #DDDDD9;
+    text-align: center;
 }
